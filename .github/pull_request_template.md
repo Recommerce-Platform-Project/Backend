@@ -1,7 +1,4 @@
-### PR Type
-
-<!— Please check the one that applies to this PR using "x". —>
-
+### PR 타입(하나 이상의 PR 타입을 선택해주세요)
 - [ ]  기능 개발(Feature)
 - [ ]  기능 변경(Feature update)
 - [ ]  기능 삭제(Delete)
