@@ -1,4 +1,4 @@
-package com.recplatform.recplatformproject.login.config;
+package com.recplatform.recplatformproject.auth.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
