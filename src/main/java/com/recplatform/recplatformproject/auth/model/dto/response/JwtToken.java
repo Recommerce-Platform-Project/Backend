@@ -1,4 +1,4 @@
-package com.recplatform.recplatformproject.login.model.dto.response;
+package com.recplatform.recplatformproject.auth.model.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
