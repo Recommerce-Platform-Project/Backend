@@ -50,7 +50,6 @@ public class SecurityConfig {
                 )
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
-
     }
 
     @Bean
