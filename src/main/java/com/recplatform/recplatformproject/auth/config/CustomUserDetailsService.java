@@ -1,6 +1,6 @@
 package com.recplatform.recplatformproject.auth.config;
 
-import com.recplatform.recplatformproject.user.model.entity.User;
+import com.recplatform.recplatformproject.user.model.entity.Users;
 import com.recplatform.recplatformproject.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,15 +18,15 @@ public class CustomUserDetailsService implements UserDetailsService {
     //UserName으로 조회
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userRepository.findByUserName(userName).orElseThrow(
+        Users users = userRepository.findByUserName(userName).orElseThrow(
                 () -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다. userName =" + userName));
-        return new CustomUserDetails(user);
+        return new CustomUserDetails(users);
     }
 
     //UserId로 조회
     public UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
-        User user = userRepository.findByUserName(userId).orElseThrow(
+        Users users = userRepository.findByUserName(userId).orElseThrow(
                 () -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다. userId =" + userId));
-        return new CustomUserDetails(user);
+        return new CustomUserDetails(users);
     }
 }

@@ -1,9 +1,8 @@
 package com.recplatform.recplatformproject.user.model.dto.request;
 
-import com.recplatform.recplatformproject.user.model.entity.User;
+import com.recplatform.recplatformproject.user.model.entity.Users;
 import com.recplatform.recplatformproject.user.model.enums.SocialType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,8 +21,8 @@ public class UserRequestDTO {
     private SocialType socialType;
 
     //엔티티 생성하는 빌더
-    public User toEntity(){
-        return User.builder()
+    public Users toEntity(){
+        return Users.builder()
                 .userId(this.userId)
                 .userPassword(this.userPassword)
                 .userName(this.userName)

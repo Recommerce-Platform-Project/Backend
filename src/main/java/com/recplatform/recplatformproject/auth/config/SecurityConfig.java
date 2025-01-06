@@ -28,16 +28,22 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(AbstractHttpConfigurer::disable
-                )
+        return http
+                .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/admin/*").hasRole("ADMIN") //관리자 페이지 추가를 위한 설정
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()  // /h2-console URL에 대한 접근 허용
+                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
+                )
+                .formLogin(login -> login
+                        .loginProcessingUrl("/api/auth/login")
+                        .usernameParameter("loginId")
+                        .passwordParameter("loginPw")
+                        .permitAll()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //서버에서 세션을 관리하지않고 클라이언트가 JWT 토큰을 이용해 인증을 요청하고 서버를 STATELESS 하게 유지함
@@ -45,7 +51,6 @@ public class SecurityConfig {
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
 
-        return http.build();
     }
 
     @Bean

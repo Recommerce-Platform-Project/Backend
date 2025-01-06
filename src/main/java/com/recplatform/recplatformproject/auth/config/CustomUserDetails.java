@@ -1,6 +1,6 @@
 package com.recplatform.recplatformproject.auth.config;
 
-import com.recplatform.recplatformproject.user.model.entity.User;
+import com.recplatform.recplatformproject.user.model.entity.Users;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,10 +9,10 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
-    private final User user;
+    private final Users users;
 
-    public CustomUserDetails(User user) {
-        this.user = user;
+    public CustomUserDetails(Users users) {
+        this.users = users;
     }
 
     @Override
@@ -22,35 +22,35 @@ public class CustomUserDetails implements UserDetails {
 
     ///////////////////////////////////////////////////
     public String getUserID() {
-        return user.getUserId();
+        return users.getUserId();
     }
 
     public String getUserNickname() {
-        return user.getUserNickname();
+        return users.getUserNickname();
     }
 
     public String getUserEmail() {
-        return user.getUserEmail();
+        return users.getUserEmail();
     }
 
     public String getUserPhone() {
-        return user.getUserPhone();
+        return users.getUserPhone();
     }
 
     public String getAddress() {
-        return user.getAddress();
+        return users.getAddress();
     }
 
     public String getProfileImage() {
-        return user.getProfileImage();
+        return users.getProfileImage();
     }
 
     public String getSocialEmail() {
-        return user.getProfileImage();
+        return users.getProfileImage();
     }
 
     public String getSocialType() {
-        return user.getSocialType().name();
+        return users.getSocialType().name();
     }
 
     @Override

@@ -5,7 +5,6 @@ import com.recplatform.recplatformproject.user.model.enums.SocialType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class User {
+public class Users {
     @Id
     @Column(nullable = false, unique = true)
     @NotBlank(message = "값을 입력해야 합니다")
@@ -52,11 +51,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToOne(mappedBy = "users")
     private Auth auth;
 
     @Builder
-    public User(String userId, String userPassword, String userName, String userNickname, String userEmail, String userPhone, String address, String profileImage, String socialEmail, SocialType socialType, Auth auth) {
+    public Users(String userId, String userPassword, String userName, String userNickname, String userEmail, String userPhone, String address, String profileImage, String socialEmail, SocialType socialType, Auth auth) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.userName = userName;

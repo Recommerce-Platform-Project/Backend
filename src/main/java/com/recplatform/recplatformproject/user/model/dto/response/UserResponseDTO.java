@@ -1,7 +1,6 @@
 package com.recplatform.recplatformproject.user.model.dto.response;
 
-import com.recplatform.recplatformproject.user.model.entity.User;
-import com.recplatform.recplatformproject.user.model.enums.SocialType;
+import com.recplatform.recplatformproject.user.model.entity.Users;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,7 +17,7 @@ public class UserResponseDTO {
     private String socialType;
 
     @Builder
-    public UserResponseDTO(User entity) {
+    public UserResponseDTO(Users entity) {
         this.userId = entity.getUserId();
         this.userPassword = entity.getUserPassword();
         this.userName = entity.getUserName();
