@@ -1,6 +1,6 @@
-package com.recplatform.recplatformproject.member.model.entity;
+package com.recplatform.recplatformproject.user.model.entity;
 
-import com.recplatform.recplatformproject.member.model.enums.SocialType;
+import com.recplatform.recplatformproject.user.model.enums.SocialType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
